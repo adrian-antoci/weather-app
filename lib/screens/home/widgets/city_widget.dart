@@ -7,10 +7,10 @@ import 'package:weather_demo_app/screens/home/bloc/home_page_bloc.dart';
 
 /// Widget that displays a [City] as a card in a list.
 class CityWidget extends StatelessWidget {
-  CityWidget(this.city, {super.key});
+  const CityWidget(this.city, {super.key});
 
   final City city;
-  final _formatter = DateFormat('HH:mm');
+  static final _formatter = DateFormat('HH:mm');
 
   @override
   Widget build(BuildContext context) {

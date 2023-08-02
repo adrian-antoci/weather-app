@@ -20,15 +20,17 @@ class WeatherApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-        routerConfig: _router,
-        title: 'Welcome to the Weather App',
-        theme: ThemeData(
-            textTheme: GoogleFonts.montserratTextTheme().copyWith(
+      routerConfig: _router,
+      title: 'Welcome to the Weather App',
+      theme: ThemeData(
+        textTheme: GoogleFonts.montserratTextTheme().copyWith(
           displayLarge: const TextStyle(color: Colors.white),
           displayMedium: const TextStyle(color: Colors.white),
           bodyMedium: const TextStyle(color: Colors.white),
           titleMedium: const TextStyle(color: Colors.white),
-        )));
+        ),
+      ),
+    );
   }
 
   final _router = GoRouter(
