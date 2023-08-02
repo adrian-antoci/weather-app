@@ -54,12 +54,12 @@ class CityPageWidget extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Hero(
-                            tag: "${city.name}_${city.temp}", child: Text("${city.temp}°", style: const TextStyle(fontSize: 56))),
+                            tag: '${city.name}_${city.temp}', child: Text('${city.temp}°', style: const TextStyle(fontSize: 56))),
                         Text(city.weather.description.capitalize()),
                       ],
                     ),
                     Hero(
-                        tag: "${city.name}_${city.weather.icon}",
+                        tag: '${city.name}_${city.weather.icon}',
                         child: Padding(
                             padding: const EdgeInsets.only(right: 30),
                             child: Lottie.asset('assets/animations/${city.weather.icon}', width: 130))),
@@ -69,7 +69,7 @@ class CityPageWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Hero(
-                        tag: "${city.name}_pin",
+                        tag: '${city.name}_pin',
                         child: Lottie.asset('assets/animations/pin.json', height: 80, repeat: false, animate: true)),
                     const SizedBox(
                       width: 16,
@@ -78,7 +78,7 @@ class CityPageWidget extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Hero(tag: city.name, child: Text(city.name, style: const TextStyle(fontSize: 26))),
-                        Text("Feels like ${city.feelsLikeTemp}°"),
+                        Text('Feels like ${city.feelsLikeTemp}°'),
                       ],
                     )
                   ],
@@ -91,10 +91,10 @@ class CityPageWidget extends StatelessWidget {
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2, crossAxisSpacing: 10, mainAxisSpacing: 10),
                   children: [
-                    _statWidget("thermometer.json", "Range", "Min ${city.tempMin}°\nMax ${city.tempMax}°"),
-                    _statWidget("wind.json", "Wind", "${city.wind} km/h"),
-                    _statWidget("humidity.json", "Humidity", "${city.humidity}%"),
-                    _statWidget("pressure.json", "Pressure", "${city.pressure} hPa"),
+                    _statWidget('thermometer.json', 'Range', 'Min ${city.tempMin}°\nMax ${city.tempMax}°'),
+                    _statWidget('wind.json', 'Wind', '${city.wind} km/h'),
+                    _statWidget('humidity.json', 'Humidity', '${city.humidity}%'),
+                    _statWidget('pressure.json', 'Pressure', '${city.pressure}hPa'),
                   ],
                 )
               ],

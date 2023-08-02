@@ -64,7 +64,7 @@ class WeatherApp extends StatelessWidget {
             parentNavigatorKey: _shellNavigatorKey,
             builder: (context, state) {
               //FIXME improve error state
-              return state.extra == null ? const Text("Something went wrong") : CityPageWidget.instance(state.extra as City);
+              return state.extra == null ? const Text('Something went wrong') : CityPageWidget.instance(state.extra as City);
             },
           ),
         ],
@@ -75,6 +75,6 @@ class WeatherApp extends StatelessWidget {
 
 extension StringExtension on String {
   String capitalize() {
-    return "${this[0].toUpperCase()}${substring(1).toLowerCase()}";
+    return '${this[0].toUpperCase()}${substring(1).toLowerCase()}';
   }
 }

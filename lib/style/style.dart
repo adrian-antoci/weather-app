@@ -29,11 +29,11 @@ Widget paragraphStrong(String text) => Text(
     );
 
 String formatStatName(String name) {
-  return name.replaceAll("-", "\n").capitalize();
+  return name.replaceAll('-', '\n').capitalize();
 }
 
 extension StringExtension on String {
   String capitalize() {
-    return "${this[0].toUpperCase()}${substring(1).toLowerCase()}";
+    return '${this[0].toUpperCase()}${substring(1).toLowerCase()}';
   }
 }

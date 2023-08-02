@@ -5,7 +5,7 @@ import 'city_widget.dart';
 
 ///
 /// The search results widget.
-/// Will display a list of [Cities].
+/// Will display a list of [City].
 ///
 class CityListWidget extends StatelessWidget {
   const CityListWidget({super.key});

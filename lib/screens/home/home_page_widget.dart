@@ -27,7 +27,7 @@ class HomePageWidget extends StatelessWidget {
           context.push('/city', extra: state.city);
         } else if (state is HomePageBlocStateError) {
           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-            content: Text("Something went wrong, please try again"),
+            content: Text('Something went wrong, please try again'),
           ));
         }
       },

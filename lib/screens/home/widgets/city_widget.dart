@@ -34,7 +34,7 @@ class CityWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Hero(
-                      tag: "${city.name}_pin",
+                      tag: '${city.name}_pin',
                       child: Lottie.asset('assets/animations/pin.json',
                           height: 50, alignment: Alignment.topRight, repeat: false, animate: false)),
                   const SizedBox(
@@ -52,7 +52,7 @@ class CityWidget extends StatelessWidget {
                       const SizedBox(
                         height: 4,
                       ),
-                      Text("Sunrise ${_formatter.format(city.sunrise)} / Sunset ${_formatter.format(city.sunset)} "),
+                      Text('Sunrise ${_formatter.format(city.sunrise)} / Sunset ${_formatter.format(city.sunset)} '),
                     ],
                   )
                 ],
@@ -61,15 +61,15 @@ class CityWidget extends StatelessWidget {
             Row(
               children: [
                 Hero(
-                    tag: "${city.name}_${city.weather.icon}",
+                    tag: '${city.name}_${city.weather.icon}',
                     child: Lottie.asset('assets/animations/${city.weather.icon}', width: 70)),
                 const SizedBox(
                   width: 5,
                 ),
                 Hero(
-                    tag: "${city.name}_${city.temp}",
+                    tag: '${city.name}_${city.temp}',
                     child: Text(
-                      "${city.temp}°",
+                      '${city.temp}°',
                       style: const TextStyle(fontSize: 21),
                     ))
               ],

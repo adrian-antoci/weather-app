@@ -36,7 +36,7 @@ class City {
 
   static City empty() => City(
       id: 1,
-      name: "name",
+      name: 'name',
       temp: 2,
       feelsLikeTemp: 3,
       sunrise: DateTime.now(),
@@ -46,5 +46,5 @@ class City {
       tempMax: 1,
       tempMin: 2,
       wind: 1,
-      weather: Weather("main", "description", "icon"));
+      weather: Weather('main', 'description', 'icon'));
 }
