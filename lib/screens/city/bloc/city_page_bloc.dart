@@ -10,9 +10,7 @@ class CityPageBloc extends Bloc<CityPageBlocEvent, CityPageBlocState> {
   CityPageBloc({
     required AppDataRepository dataRepository,
     required this.city,
-  }) : super(CityPageBlocStateDefault()) {
-    on<CityPageBlocEventOnBack>((event, emit) => emit(CityPageBlocStateBack()));
-  }
+  }) : super(CityPageBlocStateDefault()) {}
 
   final City city;
 }

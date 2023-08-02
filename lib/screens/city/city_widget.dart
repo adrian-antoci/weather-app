@@ -26,81 +26,70 @@ class CityPageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var city = context.read<CityPageBloc>().city;
-
-    return BlocListener<CityPageBloc, CityPageBlocState>(
-        listenWhen: (previous, current) => current is CityPageBlocEventOnBack,
-        listener: (context, state) {
-          if (state is CityPageBlocStateBack) {
-            if (context.canPop()) {
-              context.pop();
-            }
-          }
-        },
-        child: Scaffold(
-          backgroundColor: Colors.transparent,
-          appBar: AppBar(
-            elevation: 0,
-            backgroundColor: Colors.transparent,
-          ),
-          body: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Hero(
-                            tag: '${city.name}_${city.temp}', child: Text('${city.temp}°', style: const TextStyle(fontSize: 56))),
-                        Text(city.weather.description.capitalize()),
-                      ],
-                    ),
-                    Hero(
-                        tag: '${city.name}_${city.weather.icon}',
-                        child: Padding(
-                            padding: const EdgeInsets.only(right: 30),
-                            child: Lottie.asset('assets/animations/${city.weather.icon}', width: 130))),
+                    Hero(tag: '${city.name}_${city.temp}', child: Text('${city.temp}°', style: const TextStyle(fontSize: 56))),
+                    Text(city.weather.description.capitalize()),
                   ],
                 ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Hero(
-                        tag: '${city.name}_pin',
-                        child: Lottie.asset('assets/animations/pin.json', height: 80, repeat: false, animate: true)),
-                    const SizedBox(
-                      width: 16,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Hero(tag: city.name, child: Text(city.name, style: const TextStyle(fontSize: 26))),
-                        Text('Feels like ${city.feelsLikeTemp}°'),
-                      ],
-                    )
-                  ],
-                ),
+                Hero(
+                    tag: '${city.name}_${city.weather.icon}',
+                    child: Padding(
+                        padding: const EdgeInsets.only(right: 30),
+                        child: Lottie.asset('assets/animations/${city.weather.icon}', width: 130))),
+              ],
+            ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Hero(
+                    tag: '${city.name}_pin',
+                    child: Lottie.asset('assets/animations/pin.json', height: 80, repeat: false, animate: true)),
                 const SizedBox(
-                  height: 8,
+                  width: 16,
                 ),
-                GridView(
-                  shrinkWrap: true,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2, crossAxisSpacing: 10, mainAxisSpacing: 10),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    _statWidget('thermometer.json', 'Range', 'Min ${city.tempMin}°\nMax ${city.tempMax}°'),
-                    _statWidget('wind.json', 'Wind', '${city.wind} km/h'),
-                    _statWidget('humidity.json', 'Humidity', '${city.humidity}%'),
-                    _statWidget('pressure.json', 'Pressure', '${city.pressure}hPa'),
+                    Hero(tag: city.name, child: Text(city.name, style: const TextStyle(fontSize: 26))),
+                    Text('Feels like ${city.feelsLikeTemp}°'),
                   ],
                 )
               ],
             ),
-          ),
-        ));
+            const SizedBox(
+              height: 8,
+            ),
+            GridView(
+              shrinkWrap: true,
+              gridDelegate:
+                  const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, crossAxisSpacing: 10, mainAxisSpacing: 10),
+              children: [
+                _statWidget('thermometer.json', 'Range', 'Min ${city.tempMin}°\nMax ${city.tempMax}°'),
+                _statWidget('wind.json', 'Wind', '${city.wind} km/h'),
+                _statWidget('humidity.json', 'Humidity', '${city.humidity}%'),
+                _statWidget('pressure.json', 'Pressure', '${city.pressure}hPa'),
+              ],
+            )
+          ],
+        ),
+      ),
+    );
   }
 
   Widget _statWidget(String icon, String title, String description) => Container(
