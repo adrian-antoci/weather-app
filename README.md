@@ -4,7 +4,8 @@
 This the Flutter implementation of a demo app using the Weather API.
 It uses the Bloc lib for state management and dependency injection.
 
-Try it -> 
+Try it -> https://weather-app-antoci.web.app
+
 ## Getting Started
 
 Clone the repo locally and run:
