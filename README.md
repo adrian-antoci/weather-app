@@ -50,6 +50,11 @@ test/
 |- home_page.dart        -> the home page bloc unit tests
 ```
 
+Run the tests
+```
+flutter test
+```
+
 ## For questions please message Adrian A.
 adrian@atomsoftworks.com
 
