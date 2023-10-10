@@ -13,9 +13,7 @@ class HomePageBloc extends Bloc<HomePageBlocEvent, HomePageBlocState> {
     required AppDataRepository dataRepository,
   }) : super(HomePageBlocStateLoading()) {
     on<HomePageBlocEventOnCitySelected>((event, emit) => emit(HomePageBlocStateCitySelected(event.city)));
-    on<HomePageBlocEventOnFetchResults>((event, emit) => _onFetchResults(dataRepository: dataRepository, emit: emit));
-
-    add(HomePageBlocEventOnFetchResults());
+    on<HomePageBlocEventOnFetchData>((event, emit) => _onFetchResults(dataRepository: dataRepository, emit: emit));
   }
 
   List<City> cities = [];

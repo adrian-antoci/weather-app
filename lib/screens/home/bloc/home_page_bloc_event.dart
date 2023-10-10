@@ -5,7 +5,7 @@ abstract class HomePageBlocEvent {
 }
 
 /// When new data should be retrieved
-class HomePageBlocEventOnFetchResults extends HomePageBlocEvent {}
+class HomePageBlocEventOnFetchData extends HomePageBlocEvent {}
 
 /// When user selects a city
 class HomePageBlocEventOnCitySelected extends HomePageBlocEvent {

@@ -8,15 +8,28 @@ import 'bloc/home_page_bloc.dart';
 ///
 /// Implementation of the Home Page widget
 ///
-class HomePageWidget extends StatelessWidget {
+class HomePageWidget extends StatefulWidget {
+  const HomePageWidget({super.key});
+
   static Widget instance() => BlocProvider(
         create: (context) {
           return HomePageBloc(
             dataRepository: RepositoryProvider.of<AppDataRepository>(context),
           );
         },
-        child: HomePageWidget(),
+        child: const HomePageWidget(),
       );
+
+  @override
+  createState() => _HomePageWidgetState();
+}
+
+class _HomePageWidgetState extends State<HomePageWidget> {
+  @override
+  void initState() {
+    context.read<HomePageBloc>().add(HomePageBlocEventOnFetchData());
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

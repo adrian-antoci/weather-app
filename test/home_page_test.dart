@@ -27,7 +27,7 @@ void main() {
     when(() => dataRepoMock.fetchWeather()).thenAnswer((_) => Future(() => Left(APIError(504, "Error"))));
     blocTest('fetchWeather() is called when [HomePageBlocEventOnFetchResults] is emitted',
         build: () => HomePageBloc(dataRepository: dataRepoMock),
-        act: (bloc) => bloc.add(HomePageBlocEventOnFetchResults()),
+        act: (bloc) => bloc.add(HomePageBlocEventOnFetchData()),
         verify: (_) {
           verify(() => dataRepoMock.fetchWeather()).called(1);
         });
@@ -36,7 +36,7 @@ void main() {
     blocTest(
       'emits [HomePageBlocEventOnFetchResults] data repo response is returning results',
       build: () => HomePageBloc(dataRepository: dataRepoMock),
-      act: (bloc) => bloc.add(HomePageBlocEventOnFetchResults()),
+      act: (bloc) => bloc.add(HomePageBlocEventOnFetchData()),
       expect: () => [isA<HomePageBlocStateResultsAvailable>()],
     );
 
@@ -44,7 +44,7 @@ void main() {
     blocTest(
       'emits [HomePageBlocEventOnFetchResults] and checks if results are available',
       build: () => HomePageBloc(dataRepository: dataRepoMock),
-      act: (bloc) => bloc.add(HomePageBlocEventOnFetchResults()),
+      act: (bloc) => bloc.add(HomePageBlocEventOnFetchData()),
       verify: (bloc) {
         expect(1, bloc.cities.length);
       },
